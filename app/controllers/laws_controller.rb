@@ -69,6 +69,6 @@ class LawsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def law_params
-      params.require(:law).permit(:title, :slug)
+      params.require(:law).permit(:title)
     end
 end
