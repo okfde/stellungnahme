@@ -1,2 +1,33 @@
-<h1>Site#index</h1>
-<p>Find me in app/views/site/index.html.erb</p>
+<header class="page-header">
+  <div class="container">
+    <h2><mark><%= @org_count %></mark> Verbände wurden in den letzten <mark>5&nbsp;Jahren</mark> angefragt,
+    Stellungnahmen zu <mark><%= @law_count %>&nbsp;Gesetzen</mark> zu schreiben</h2>
+
+    <form action="/search" method="get">
+      <div class="search-input-wrap">
+        <label class="sr" for="q">Nach Verband suchen</label>
+        <input type="search" class="search-input" id="q" name="q" placeholder="Nach Verband suchen"/>
+        <!-- search icon button? -->
+      </div>
+      <p class="search-examples">
+        zum Beispiel <a href="/search?q=Volkswagen">Volkswagen</a> oder <a href="/search?q=Bitkom">Bitkom</a>
+      </p>
+    </form>
+  </div>
+</header>
+
+<div class="container">
+  <h3>Und hier ist eine Liste aller angefragten Verbände:</h3>
+  <ol class="list-abc">
+    <% (('A'..'Z').to_a + ['Ä','Ü','Ö']).sort.each do |letter| %>
+      <li><a href="/<%= letter.downcase %>"><%= letter %></a></li>
+    <% end %>
+  </ol>
+
+  <div class="abc-page">
+    <h4>A</h4>
+    <ul class="list">
+      <li><a href="#">ABC - A Be C-Test e.V.</a></li>
+    </ul>
+  </div>
+</div>
