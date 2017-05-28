@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Billtrack</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>entwurfsfassung</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <header class="main-header">
+    <h1><%= link_to 'entwurfsfassung', root_url %></h1>
+    <nav>
+      <ul>
+        <li><a href="#">Verbände</a></li>
+        <li><%= link_to 'Gesetze', laws_path %></li>
+        <li><%= link_to 'Ministerien', ministries_path %></li>
+        <li>&amp;</li>
+        <li><a href="#">Daten</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <body>
-    <%= yield %>
-  </body>
+  <%= yield %>
+
+  <footer class="main-footer">
+    <div class="container">
+      <h3>Ein Projekt von</h3>
+      <nav>
+        <a href="https://www.abgeordnetenwatch.de" class="footer-abg"><img src="<%= image_url 'abgeordnetenwatch-logo.svg' %>" alt="abgeordnetenwatch.de" role="presentation" /></a>
+        <a href="https://okfn.de" class="footer-okf"><img src="<%= image_url 'okfn-logo.svg' %>" alt="Open Knowledge Foundation Deutschland e.V." role="presentation" /></a>
+        <ul>
+          <li><a href="#">Kontakt</a></li>
+          <li><a href="#">Impressum</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
 </html>
