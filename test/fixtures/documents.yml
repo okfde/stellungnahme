@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  source_url: http://example.com/source.txt
+  contents: a
+  filetype: text/plain
+  filesize: 1
+
+two:
+  source_url: http://example.com/source2.txt
+  contents: b
+  filetype: text/plain
+  filesize: 1
