@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  law: one
+  document: one
+  asked_at: 2017-05-30 09:55:07
+  answered_at: 2017-05-30 09:55:07
+
+two:
+  law: two
+  document: two
+  asked_at: 2017-05-30 09:55:07
+  answered_at: 2017-05-30 09:55:07

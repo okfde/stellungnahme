@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170529180728) do
+ActiveRecord::Schema.define(version: 20170530075507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "law_id"
+    t.bigint "document_id"
+    t.datetime "asked_at"
+    t.datetime "answered_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["document_id"], name: "index_comments_on_document_id"
+    t.index ["law_id"], name: "index_comments_on_law_id"
+  end
 
   create_table "documents", force: :cascade do |t|
     t.string "source_url"
@@ -58,6 +69,16 @@ ActiveRecord::Schema.define(version: 20170529180728) do
     t.index ["slug"], name: "index_ministries_on_slug", unique: true
   end
 
+  create_table "organizations", force: :cascade do |t|
+    t.string "name"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_organizations_on_slug", unique: true
+  end
+
+  add_foreign_key "comments", "documents"
+  add_foreign_key "comments", "laws"
   add_foreign_key "drafts", "documents"
   add_foreign_key "drafts", "laws"
 end
