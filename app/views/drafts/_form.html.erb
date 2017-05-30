@@ -1,0 +1,32 @@
+<%= form_with(model: draft, local: true) do |form| %>
+  <% if draft.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(draft.errors.count, "error") %> prohibited this draft from being saved:</h2>
+
+      <ul>
+      <% draft.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :law_id %>
+    <%= form.select :law_id, Law.all.collect {|l| [l.title, l.id]}, id: :draft_law_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :published_at %>
+    <%= form.datetime_select :published_at, id: :draft_published_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :document_id %>
+    <%= form.select :document_id, Document.all.collect {|d| [d.source_url, d.id]}, id: :draft_document_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
