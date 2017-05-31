@@ -2,12 +2,14 @@
 
 one:
   law: one
+  draft: one
   document: one
   asked_at: 2017-05-30 09:55:07
   answered_at: 2017-05-30 09:55:07
 
 two:
   law: two
+  draft: two
   document: two
   asked_at: 2017-05-30 09:55:07
   answered_at: 2017-05-30 09:55:07

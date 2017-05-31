@@ -2,5 +2,5 @@
 
 <%= render 'form', law: @law, draft: @draft %>
 
-<%= link_to 'Show', @draft %> |
+<%= link_to 'Show', [@law, @draft] %> |
 <%= link_to 'Back', law_drafts_path(@law) %>

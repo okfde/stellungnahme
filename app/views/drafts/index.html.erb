@@ -18,9 +18,9 @@
         <td><%= draft.law %></td>
         <td><%= draft.published_at %></td>
         <td><%= draft.document %></td>
-        <td><%= link_to 'Show', draft %></td>
-        <td><%= link_to 'Edit', edit_draft_path(draft) %></td>
-        <td><%= link_to 'Destroy', draft, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', [@law, draft] %></td>
+        <td><%= link_to 'Edit', edit_law_draft_path(@law, draft) %></td>
+        <td><%= link_to 'Destroy', [@law, draft], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

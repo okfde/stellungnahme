@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  slug: MyString
+  name: Organization
+  slug: organization
 
 two:
-  name: MyString
-  slug: MyString
+  name: Other Org
+  slug: other-org

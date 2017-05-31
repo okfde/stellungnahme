@@ -12,13 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :law_id %>
-    <%= form.select :law_id, Law.all.collect {|l| [l.title, l.id]}, id: :comment_law_id %>
-  </div>
-
-  <div class="field">
     <%= form.label :draft_id %>
-    <%= form.select :draft_id, Draft.all.collect {|l| [l.title, l.id]}, id: :draft_id %>
+    <%= form.select :draft_id, Draft.all.collect {|d| [d.id, d.id]}, id: :draft_id %>
   </div>
 
   <div class="field">

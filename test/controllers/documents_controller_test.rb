@@ -39,8 +39,10 @@ class DocumentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy document" do
+    document = documents(:three)
+
     assert_difference('Document.count', -1) do
-      delete document_url(@document)
+      delete document_url(document)
     end
 
     assert_redirected_to documents_url

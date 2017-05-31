@@ -11,3 +11,9 @@ two:
   contents: b
   filetype: text/plain
   filesize: 1
+
+three:
+  source_url: http://example.com/source3.txt
+  contents: c
+  filetype: text/plain
+  filesize: 1

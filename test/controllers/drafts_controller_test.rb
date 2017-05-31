@@ -2,47 +2,48 @@ require 'test_helper'
 
 class DraftsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    @law = laws(:one)
     @draft = drafts(:one)
   end
 
   test "should get index" do
-    get drafts_url
+    get law_drafts_url(@law)
     assert_response :success
   end
 
   test "should get new" do
-    get new_draft_url
+    get new_law_draft_url(@law)
     assert_response :success
   end
 
   test "should create draft" do
     assert_difference('Draft.count') do
-      post drafts_url, params: { draft: { document_id: @draft.document_id, law_id: @draft.law_id, published_at: @draft.published_at } }
+      post law_drafts_url(@law), params: { draft: { document_id: @draft.document_id, published_at: @draft.published_at } }
     end
 
-    assert_redirected_to draft_url(Draft.last)
+    assert_redirected_to law_draft_url(@law, Draft.last)
   end
 
   test "should show draft" do
-    get draft_url(@draft)
+    get law_draft_url(@law, @draft)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_draft_url(@draft)
+    get edit_law_draft_url(@law, @draft)
     assert_response :success
   end
 
   test "should update draft" do
-    patch draft_url(@draft), params: { draft: { document_id: @draft.document_id, law_id: @draft.law_id, published_at: @draft.published_at } }
-    assert_redirected_to draft_url(@draft)
+    patch law_draft_url(@law, @draft), params: { draft: { document_id: @draft.document_id, published_at: @draft.published_at } }
+    assert_redirected_to law_draft_url(@law, @draft)
   end
 
   test "should destroy draft" do
     assert_difference('Draft.count', -1) do
-      delete draft_url(@draft)
+      delete law_draft_url(@law, @draft)
     end
 
-    assert_redirected_to drafts_url
+    assert_redirected_to law_drafts_url(@law)
   end
 end

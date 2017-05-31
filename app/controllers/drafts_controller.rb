@@ -25,12 +25,12 @@ class DraftsController < ApplicationController
   # POST /laws/1/drafts
   # POST /laws/1/drafts.json
   def create
-    @draft = Draft.new(draft_params)
+    @draft = @law.drafts.new(draft_params)
 
     respond_to do |format|
       if @draft.save
-        format.html { redirect_to @draft, notice: 'Draft was successfully created.' }
-        format.json { render :show, status: :created, location: @draft }
+        format.html { redirect_to [@law, @draft], notice: 'Draft was successfully created.' }
+        format.json { render :show, status: :created, location: [@law, @draft] }
       else
         format.html { render :new }
         format.json { render json: @draft.errors, status: :unprocessable_entity }
@@ -43,8 +43,8 @@ class DraftsController < ApplicationController
   def update
     respond_to do |format|
       if @draft.update(draft_params)
-        format.html { redirect_to @draft, notice: 'Draft was successfully updated.' }
-        format.json { render :show, status: :ok, location: @draft }
+        format.html { redirect_to [@law, @draft], notice: 'Draft was successfully updated.' }
+        format.json { render :show, status: :ok, location: [@law, @draft] }
       else
         format.html { render :edit }
         format.json { render json: @draft.errors, status: :unprocessable_entity }
@@ -57,7 +57,7 @@ class DraftsController < ApplicationController
   def destroy
     @draft.destroy
     respond_to do |format|
-      format.html { redirect_to drafts_url, notice: 'Draft was successfully destroyed.' }
+      format.html { redirect_to law_drafts_url(@law), notice: 'Draft was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,11 +69,11 @@ class DraftsController < ApplicationController
     end
 
     def set_draft
-      @draft = Draft.find(params[:draft_id])
+      @draft = Draft.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def draft_params
-      params.require(:draft).permit(:law_id, :published_at, :document_id)
+      params.require(:draft).permit(:published_at, :document_id)
     end
 end
