@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170531072930) do
+ActiveRecord::Schema.define(version: 20170531073752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,12 @@ ActiveRecord::Schema.define(version: 20170531072930) do
     t.index ["document_id"], name: "index_comments_on_document_id"
     t.index ["draft_id"], name: "index_comments_on_draft_id"
     t.index ["law_id"], name: "index_comments_on_law_id"
+  end
+
+  create_table "comments_organizations", id: false, force: :cascade do |t|
+    t.bigint "comment_id", null: false
+    t.bigint "organization_id", null: false
+    t.index ["organization_id", "comment_id"], name: "index_comments_organizations_on_organization_id_and_comment_id", unique: true
   end
 
   create_table "documents", force: :cascade do |t|
