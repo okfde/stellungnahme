@@ -1,28 +1,29 @@
 class DraftsController < ApplicationController
+  before_action :set_law
   before_action :set_draft, only: [:show, :edit, :update, :destroy]
 
-  # GET /drafts
-  # GET /drafts.json
+  # GET /laws/1/drafts
+  # GET /laws/1/drafts.json
   def index
     @drafts = Draft.all
   end
 
-  # GET /drafts/1
-  # GET /drafts/1.json
+  # GET /laws/1/drafts/1
+  # GET /laws/1/drafts/1.json
   def show
   end
 
-  # GET /drafts/new
+  # GET /laws/1/drafts/new
   def new
     @draft = Draft.new
   end
 
-  # GET /drafts/1/edit
+  # GET /laws/1/drafts/1/edit
   def edit
   end
 
-  # POST /drafts
-  # POST /drafts.json
+  # POST /laws/1/drafts
+  # POST /laws/1/drafts.json
   def create
     @draft = Draft.new(draft_params)
 
@@ -37,8 +38,8 @@ class DraftsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /drafts/1
-  # PATCH/PUT /drafts/1.json
+  # PATCH/PUT /laws/1/drafts/1
+  # PATCH/PUT /laws/1/drafts/1.json
   def update
     respond_to do |format|
       if @draft.update(draft_params)
@@ -51,8 +52,8 @@ class DraftsController < ApplicationController
     end
   end
 
-  # DELETE /drafts/1
-  # DELETE /drafts/1.json
+  # DELETE /laws/1/drafts/1
+  # DELETE /laws/1/drafts/1.json
   def destroy
     @draft.destroy
     respond_to do |format|
@@ -63,8 +64,12 @@ class DraftsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_law
+      @law = Law.friendly.find(params[:law_id])
+    end
+
     def set_draft
-      @draft = Draft.find(params[:id])
+      @draft = Draft.find(params[:draft_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

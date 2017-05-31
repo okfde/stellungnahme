@@ -1,6 +1,6 @@
 <h1>Editing Draft</h1>
 
-<%= render 'form', draft: @draft %>
+<%= render 'form', law: @law, draft: @draft %>
 
 <%= link_to 'Show', @draft %> |
-<%= link_to 'Back', drafts_path %>
+<%= link_to 'Back', law_drafts_path(@law) %>

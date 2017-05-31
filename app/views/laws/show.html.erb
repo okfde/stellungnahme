@@ -16,4 +16,6 @@
 </p>
 
 <%= link_to 'Edit', edit_law_path(@law) %> |
-<%= link_to 'Back', laws_path %>
+<%= link_to 'Back', laws_path %> |
+<%= link_to 'Drafts', law_drafts_path(@law) %> |
+<%= link_to 'Comments', law_comments_path(@law) %>
