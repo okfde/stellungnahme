@@ -1,0 +1,40 @@
+de:
+  datetime:
+    distance_in_words_letzten:
+      about_x_hours:
+        one: Stunde
+        other: ! '%{count} Stunden'
+      about_x_months:
+        one: Monat
+        other: ! '%{count} Monaten'
+      about_x_years:
+        one: Jahr
+        other: ! '%{count} Jahren'
+      almost_x_years:
+        one: Jahr
+        other: ! '%{count} Jahren'
+      half_a_minute: Minute
+      less_than_x_minutes:
+        one: Minute
+        other: ! '%{count} Minuten'
+      less_than_x_seconds:
+        one: Sekunde
+        other: ! '%{count} Sekunden'
+      over_x_years:
+        one: Jahr
+        other: ! '%{count} Jahren'
+      x_years:
+        one: Jahr
+        other: ! '%{count} Jahren'
+      x_days:
+        one: Tag
+        other: ! '%{count} Tagen'
+      x_minutes:
+        one: Minute
+        other: ! '%{count} Minuten'
+      x_months:
+        one: Monat
+        other: ! '%{count} Monaten'
+      x_seconds:
+        one: Sekunde
+        other: ! '%{count} Sekunden'
