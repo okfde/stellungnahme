@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170530075507) do
+ActiveRecord::Schema.define(version: 20170531072930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,9 @@ ActiveRecord::Schema.define(version: 20170530075507) do
     t.datetime "answered_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "draft_id"
     t.index ["document_id"], name: "index_comments_on_document_id"
+    t.index ["draft_id"], name: "index_comments_on_draft_id"
     t.index ["law_id"], name: "index_comments_on_law_id"
   end
 
@@ -78,6 +80,7 @@ ActiveRecord::Schema.define(version: 20170530075507) do
   end
 
   add_foreign_key "comments", "documents"
+  add_foreign_key "comments", "drafts"
   add_foreign_key "comments", "laws"
   add_foreign_key "drafts", "documents"
   add_foreign_key "drafts", "laws"

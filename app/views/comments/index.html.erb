@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Law</th>
+      <th>Draft</th>
       <th>Document</th>
       <th>Asked at</th>
       <th>Answered at</th>
@@ -17,6 +18,7 @@
     <% @comments.each do |comment| %>
       <tr>
         <td><%= comment.law %></td>
+        <td><%= comment.draft %></td>
         <td><%= comment.document %></td>
         <td><%= comment.asked_at %></td>
         <td><%= comment.answered_at %></td>
