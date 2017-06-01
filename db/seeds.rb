@@ -8,20 +8,20 @@
 
 ministries = Ministry.create(
   [
-    { name: 'Justiz und Verbraucherschutz', short_name:' BMJV' },
-    { name: 'Gesundheit', short_name:' BMG' },
-    { name: 'Auswärtiges Amt', short_name:' AA' },
-    { name: 'Wirtschaft und Energie', short_name:' BMWi' },
-    { name: 'Wirtschaftliche Zusammenarbeit und Entwicklung', short_name:' BMZ' },
-    { name: 'Inneres', short_name:' BMI' },
-    { name: 'Finanzen', short_name:' BMF' },
-    { name: 'Arbeit und Soziales', short_name:' BMAS' },
-    { name: 'Umwelt, Naturschutz, Bau und Reaktorsicherheit', short_name:' BMUB' },
-    { name: 'Bildung und Forschung', short_name:' BMBF' },
-    { name: 'Verkehr und digitale Infrastruktur', short_name:' BMVI' },
-    { name: 'Verteidigung', short_name:' BMVg' },
-    { name: 'Familie, Senioren, Frauen und Jugend', short_name:' BMFSFJ' },
-    { name: 'Ernährung und Landwirtschaft', short_name:' BMEL' },
+    { name: 'Justiz und Verbraucherschutz', short_name: 'BMJV' },
+    { name: 'Gesundheit', short_name: 'BMG' },
+    { name: 'Auswärtiges Amt', short_name: 'AA' },
+    { name: 'Wirtschaft und Energie', short_name: 'BMWi' },
+    { name: 'Wirtschaftliche Zusammenarbeit und Entwicklung', short_name: 'BMZ' },
+    { name: 'Inneres', short_name: 'BMI' },
+    { name: 'Finanzen', short_name: 'BMF' },
+    { name: 'Arbeit und Soziales', short_name: 'BMAS' },
+    { name: 'Umwelt, Naturschutz, Bau und Reaktorsicherheit', short_name: 'BMUB' },
+    { name: 'Bildung und Forschung', short_name: 'BMBF' },
+    { name: 'Verkehr und digitale Infrastruktur', short_name: 'BMVI' },
+    { name: 'Verteidigung', short_name: 'BMVg' },
+    { name: 'Familie, Senioren, Frauen und Jugend', short_name: 'BMFSFJ' },
+    { name: 'Ernährung und Landwirtschaft', short_name: 'BMEL' },
     { name: 'Kanzleramt und Medien' }
   ]
 )
