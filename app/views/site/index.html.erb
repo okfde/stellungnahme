@@ -1,6 +1,6 @@
 <header class="page-header">
   <div class="container">
-    <h2><mark><%= @org_count %></mark> Verbände wurden in den letzten <mark><%= time_ago_in_words(@first_comment.asked_at, scope: :'datetime.distance_in_words_letzten') %></mark> angefragt,
+    <h2><mark><%= @org_count %></mark> Verbände wurden in den letzten <mark><%= time_ago_in_words(@first_comment.asked_at, scope: :'datetime.distance_in_words_letzten').gsub(/\s/, '&nbsp;').html_safe %></mark> angefragt,
     Stellungnahmen zu <mark><%= @law_count %>&nbsp;Gesetzen</mark> zu schreiben</h2>
 
     <form action="/search" method="get">
@@ -25,9 +25,11 @@
   </ol>
 
   <div class="abc-page">
-    <h4>A</h4>
+    <h4><%= @letter %></h4>
     <ul class="list">
-      <li><a href="#">ABC - A Be C-Test e.V.</a></li>
+      <% @orgs.each do |org| %>
+      <li><%= link_to org.name, org %></li>
+      <% end %>
     </ul>
   </div>
 </div>
