@@ -20,16 +20,20 @@
   <h3>Und hier ist eine Liste aller angefragten Verbände:</h3>
   <ol class="list-abc">
     <% @letters.each do |letter| %>
-      <li><a href="/<%= letter.downcase %>"><%= letter %></a></li>
+      <li><%= link_to letter, "/#{letter.downcase}", class: letter.downcase == @letter.downcase ? 'active' : '' %></li>
     <% end %>
   </ol>
 
   <div class="abc-page">
-    <h4><%= @letter %></h4>
+    <h4><%= @letter.upcase %></h4>
     <ul class="list">
       <% @orgs.each do |org| %>
       <li><%= link_to org.name, org %></li>
       <% end %>
     </ul>
   </div>
+</div>
+
+<div class="container">
+  <p class="admin-controls"><%= link_to 'New Organization', new_organization_path %></p>
 </div>

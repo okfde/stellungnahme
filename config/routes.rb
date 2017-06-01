@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
-  resources :organizations
-  resources :documents
-  resources :ministries
+  resources :organizations, except: :index, path: 'verbaende'
+  get '/verbaende', to: redirect('/'), as: :organizations_index
+
+  resources :documents, path: 'd'
+  resources :ministries, path: 'ministerien'
 
   resources :laws do
     resources :drafts
     resources :comments
   end
+
+  get '/:letter', to: 'site#index', constraints: { letter: /[[:alpha:]]/ }
 
   root 'site#index'
 end
