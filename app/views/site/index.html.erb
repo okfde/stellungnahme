@@ -19,7 +19,7 @@
 <div class="container">
   <h3>Und hier ist eine Liste aller angefragten Verbände:</h3>
   <ol class="list-abc">
-    <% (('A'..'Z').to_a + ['Ä','Ü','Ö']).sort.each do |letter| %>
+    <% @letters.each do |letter| %>
       <li><a href="/<%= letter.downcase %>"><%= letter %></a></li>
     <% end %>
   </ol>

@@ -56,3 +56,6 @@ gem 'rails-i18n', '~> 5.0.0'
 
 # slug
 gem 'friendly_id', '~> 5.2.1'
+
+# sort
+gem 'ffi-icu', '~> 0.1.10'
