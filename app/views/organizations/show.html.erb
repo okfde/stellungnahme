@@ -1,14 +1,12 @@
-<p id="notice"><%= notice %></p>
+<header class="page-header">
+  <div class="container">
+    <h2><%= @organization.name %></h2>
 
-<p>
-  <strong>Name:</strong>
-  <%= @organization.name %>
-</p>
+    <p>Der Verband wurde für <%= @organization.comments.map(&:law).uniq.count %> Gesetze angefragt.</p>
+  </div>
+</header>
 
-<p>
-  <strong>Slug:</strong>
-  <%= @organization.slug %>
-</p>
-
-<%= link_to 'Edit', edit_organization_path(@organization) %> |
-<%= link_to 'Back', organizations_path %>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <p class="admin-controls"><%= link_to 'Edit', edit_organization_path(@organization) %></p>
+</div>

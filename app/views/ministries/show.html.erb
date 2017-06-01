@@ -1,20 +1,12 @@
-<p id="notice"><%= notice %></p>
+<header class="page-header">
+  <div class="container">
+    <h2><%= @ministry.name %></h2>
 
-<p>
-  <strong>Name:</strong>
-  <%= @ministry.name %>
-</p>
+    <p>Das Ministerium hat <%= @ministry.laws.count %> Gesetze entworfen.</p>
+  </div>
+</header>
 
-<p>
-  <strong>Slug:</strong>
-  <%= @ministry.slug %>
-</p>
-
-
-<p>
-  <strong>Short Name:</strong>
-  <%= @ministry.short_name %>
-</p>
-
-<%= link_to 'Edit', edit_ministry_path(@ministry) %> |
-<%= link_to 'Back', ministries_path %>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <p class="admin-controls"><%= link_to 'Edit', edit_ministry_path(@ministry) %></p>
+</div>
