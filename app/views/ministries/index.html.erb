@@ -1,29 +1,18 @@
-<p id="notice"><%= notice %></p>
+<header class="page-header">
+  <div class="container">
+    <h2><mark><%= @ministries.count %>&nbsp;Minsterien</mark></h2>
+  </div>
+</header>
 
-<h1>Ministries</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Short Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="container">
+  <ul>
     <% @ministries.each do |ministry| %>
-      <tr>
-        <td><%= ministry.name %></td>
-        <td><%= ministry.short_name %></td>
-        <td><%= link_to 'Show', ministry %></td>
-        <td><%= link_to 'Edit', edit_ministry_path(ministry) %></td>
-        <td><%= link_to 'Destroy', ministry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <li><%= link_to ministry.name + (!ministry.short_name.blank? ? " (#{ministry.short_name})" : ''), ministry %></li>
     <% end %>
-  </tbody>
-</table>
+  </ul>
+</div>
 
-<br>
-
-<%= link_to 'New Ministry', new_ministry_path %>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <p class="admin-controls"><%= link_to 'New Ministry', new_ministry_path %></p>
+</div>

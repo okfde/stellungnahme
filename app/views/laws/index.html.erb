@@ -1,27 +1,18 @@
-<p id="notice"><%= notice %></p>
+<header class="page-header">
+  <div class="container">
+    <h2><mark><%= @laws.count %>&nbsp;Gesetze</mark> und ihre Stellungnahmen</h2>
+  </div>
+</header>
 
-<h1>Laws</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="container">
+  <ul>
     <% @laws.each do |law| %>
-      <tr>
-        <td><%= law.title %></td>
-        <td><%= link_to 'Show', law %></td>
-        <td><%= link_to 'Edit', edit_law_path(law) %></td>
-        <td><%= link_to 'Destroy', law, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <li><%= link_to law.title, law %></li>
     <% end %>
-  </tbody>
-</table>
+  </ul>
+</div>
 
-<br>
-
-<%= link_to 'New Law', new_law_path %>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <p class="admin-controls"><%= link_to 'New Law', new_law_path %></p>
+</div>

@@ -1,21 +1,25 @@
-<p id="notice"><%= notice %></p>
+<header class="page-header">
+  <div class="container">
+    <h2><%= @law.title %></h2>
 
-<p>
-  <strong>Id:</strong>
-  <%= @law.id %>
-</p>
+    <nav>
+      <ul>
+        <li><a href="#">Referentenentwurf</a></li>
+        <li><a href="#">123 Stellungnahmen</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-<p>
-  <strong>Title:</strong>
-  <%= @law.title %>
-</p>
+<div class="container">
+  
+</div>
 
-<p>
-  <strong>Slug:</strong>
-  <%= @law.slug %>
-</p>
-
-<%= link_to 'Edit', edit_law_path(@law) %> |
-<%= link_to 'Back', laws_path %> |
-<%= link_to 'Drafts', law_drafts_path(@law) %> |
-<%= link_to 'Comments', law_comments_path(@law) %>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <p class="admin-controls">
+    <%= link_to 'Edit', edit_law_path(@law) %> |
+    <%= link_to 'Drafts', law_drafts_path(@law) %> |
+    <%= link_to 'Comments', law_comments_path(@law) %>
+  </p>
+</div>

@@ -23,6 +23,11 @@ html, body {
   padding: 0;
 }
 
+html {
+  height: 100%;
+  background: #000;
+}
+
 body {
   background: #fff;
   font-family: Arial, sans-serif;
@@ -171,16 +176,19 @@ main h3 {
   padding: 0;
   margin: 0;
 }
+
 .list-abc li {
   display: inline-block;
   padding: 0;
 }
+
 .list-abc a {
   color: #000;
   text-decoration: none;
   font-family: Arial Black, Arial Black MT, sans-serif;
   font-size: 1.8em;
 }
+
 .list-abc .active {
   background: linear-gradient(to bottom,
     transparent 0%, transparent 50%,
@@ -268,7 +276,14 @@ main h3 {
   text-decoration: none;
   padding: 0.3em 0;
 }
+
 .main-footer nav a:hover {
   background: #000;
   color: #fff;
+}
+
+.admin-controls {
+  margin-bottom: 0;
+  padding: 0.5em 1em;
+  background: #FEC8B0;
 }
