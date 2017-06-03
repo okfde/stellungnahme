@@ -1,0 +1,20 @@
+<%
+organization = false if organization.nil?
+%>
+<li class="law-block">
+  <p class="law-ministries">
+    <% law.ministries.each do |ministry| %>
+    <%= link_to ministry.full_name, ministry %><%= "," unless ministry == law.ministries.last %>
+    <% end %>
+  </p>
+  <h3><%= link_to law.title, law %></h3>
+  <nav>
+    <%= link_to 'zum Referentenentwurf', law_path(law, anchor: 'draft') %>
+    <% if !organization %>
+    <%= link_to 'zu den Stellungnahmen', law_path(law, anchor: 'comments') %>
+    <% else %>
+    <%# FIXME: link to comments of this org %>
+    <%= link_to 'zu den Stellungnahmen', law_path(law, anchor: 'comments') %>
+    <% end %>
+  </nav>
+</li>

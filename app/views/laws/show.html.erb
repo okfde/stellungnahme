@@ -28,19 +28,8 @@
     <% end %>
   </div>
   <div class="tab-comments" id="comments">
-    <ul>
-    <% @law.comments.each do |comment| %>
-      <li>
-        <div class="comment">
-          <h4><%= comment.organizations.map(&:name).join(', ') %></h4>
-          <% if comment.document_id.nil? %>
-          <p>Die Stellungnahme zu diesem Gesetz ist noch nicht öffentlich. Jetzt anfragen.</p>
-          <% else %>
-          <%= link_to 'zur Stellungnahme', [@law, comment] %>
-          <% end %>
-        </div>
-      </li>
-    <% end %>
+    <ul class="comments-list">
+    <%= render partial: 'comments/comment', collection: @law.comments %>
     </ul>
   </div>
 </div>

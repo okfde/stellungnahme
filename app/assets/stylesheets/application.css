@@ -291,3 +291,45 @@ main h3 {
   padding: 0.5em 1em;
   background: #FEC8B0;
 }
+
+.law-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.law-block {
+  border: 1px solid #333;
+  background: #fff;
+  padding: 2em;
+  margin-bottom: 1em;
+}
+
+.law-ministries {
+  margin-top: 0;
+}
+
+.law-ministries a {
+  text-decoration: none;
+}
+
+.law-block h3 {
+  margin-bottom: 1em;
+}
+
+.law-block h3 a {
+  text-decoration: none;
+}
+
+.comments-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.comment-block {
+  border: 1px solid #333;
+  background: #fff;
+  padding: 2em;
+  margin-bottom: 1em;
+}

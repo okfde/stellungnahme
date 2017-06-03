@@ -7,6 +7,13 @@
 </header>
 
 <div class="container">
+  <ul class="law-list">
+    <%= render partial: 'laws/law', collection: @ministry.laws %>
+  </ul>
+</div>
+
+
+<div class="container">
   <p id="notice"><%= notice %></p>
   <p class="admin-controls"><%= link_to 'Edit', edit_ministry_path(@ministry) %></p>
 </div>

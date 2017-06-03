@@ -1,0 +1,10 @@
+<li class="comment-block">
+  <h4><% comment.organizations.each do |org| %>
+    <%= link_to org.name, org %><%= "," if org != comment.organizations.last %>
+  <% end %></h4>
+  <% if comment.document_id.nil? %>
+  <p>Die Stellungnahme zu diesem Gesetz ist noch nicht öffentlich. Jetzt anfragen.</p>
+  <% else %>
+  <%= link_to 'zur Stellungnahme', [@law, comment] %>
+  <% end %>
+</li>
