@@ -2,7 +2,10 @@
   <div class="container">
     <h2><%= @law.title %></h2>
 
-    <p>von <%= @law.ministries.map(&:name).join(', ') %></p>
+    <p>von <% @law.ministries.each do |ministry| %>
+      <%= link_to ministry.full_name, ministry %><%= "," unless ministry == @law.ministries.last %>
+      <% end %>
+    </p>
 
     <nav>
       <ul>

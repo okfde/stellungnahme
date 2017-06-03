@@ -7,7 +7,7 @@
 <div class="container">
   <ul>
     <% @ministries.each do |ministry| %>
-    <li><%= link_to ministry.name + (!ministry.short_name.blank? ? " (#{ministry.short_name})" : ''), ministry %></li>
+    <li><%= link_to ministry.full_name, ministry %></li>
     <% end %>
   </ul>
 </div>
