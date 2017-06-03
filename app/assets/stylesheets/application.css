@@ -254,7 +254,11 @@ main h3 {
 
 .footer-abg, .footer-okf {
   flex: 2 0;
-  text-align: center;
+  text-align: left;
+}
+
+.main-footer img {
+  height: 80px;
 }
 
 .main-footer nav ul {
