@@ -25,5 +25,10 @@
   <%= @comment.answered_at %>
 </p>
 
+<p>
+  <strong>Organizations:</strong>
+  <%= @comment.organizations.map(&:name).join(', ') %>
+</p>
+
 <%= link_to 'Edit', edit_law_comment_path(@law, @comment) %> |
-<%= link_to 'Back', law_comments_path(@law) %>
+<%= link_to 'Back', law_path(@law) %>

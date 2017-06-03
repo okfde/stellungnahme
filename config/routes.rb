@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   resources :ministries, path: 'ministerien'
 
   resources :laws do
-    resources :drafts
-    resources :comments
+    resources :drafts, except: :index
+    resources :comments, except: :index
   end
 
   get '/:letter', to: 'site#index', constraints: { letter: /[[:alpha:]]/ }

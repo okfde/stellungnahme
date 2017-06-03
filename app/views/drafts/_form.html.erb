@@ -1,4 +1,4 @@
-<%= form_with(model: [:law, draft], local: true) do |form| %>
+<%= form_with(model: [law, draft], local: true) do |form| %>
   <% if draft.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(draft.errors.count, "error") %> prohibited this draft from being saved:</h2>

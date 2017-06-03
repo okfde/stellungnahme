@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
   # GET /laws/1/comments
   # GET /laws/1/comments.json
   def index
-    @comments = Comment.all
+    @comments = @law.comments
   end
 
   # GET /laws/1/comments/1
@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
 
   # GET /laws/1/comments/new
   def new
-    @comment = Comment.new
+    @comment = @law.comments.new
   end
 
   # GET /laws/1/comments/1/edit
@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
   # POST /laws/1/comments
   # POST /laws/1/comments.json
   def create
-    @comment = @law.comments.new(comment_params)
+    @comment = @law.comments.build(comment_params)
 
     respond_to do |format|
       if @comment.save
@@ -69,11 +69,14 @@ class CommentsController < ApplicationController
     end
 
     def set_comment
-      @comment = Comment.find(params[:id])
+      @comment = @law.comments.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:draft_id, :document_id, :asked_at, :answered_at)
+      params.require(:comment).permit(
+        :draft_id, :document_id, :asked_at, :answered_at,
+        organization_ids: []
+      )
     end
 end

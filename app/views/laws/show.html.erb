@@ -2,24 +2,51 @@
   <div class="container">
     <h2><%= @law.title %></h2>
 
+    <p>von <%= @law.ministries.map(&:name).join(', ') %></p>
+
     <nav>
       <ul>
-        <li><a href="#">Referentenentwurf</a></li>
-        <li><a href="#">123 Stellungnahmen</a></li>
+        <li><a href="#drafts">Referentenentwurf</a></li>
+        <li><a href="#comments"><%= @law.comments.count %> Stellungnahmen</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
 <div class="container">
-  
+  <div class="tab-draft" id="drafts">
+    <% @law.drafts.each do |draft| %>
+      <p><strong>Published at:</strong> <%= l draft.published_at %></p>
+      <% if draft.document.nil? %>
+      <p>Der Referentenentwurf für dieses Gesetz ist noch nicht öffentlich. Jetzt anfragen.</p>
+      <% else %>
+      <p><strong>Quelle:</strong> <%= link_to draft.document.source_url, draft.document.source_url %></p>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="tab-comments" id="comments">
+    <ul>
+    <% @law.comments.each do |comment| %>
+      <li>
+        <div class="comment">
+          <h4><%= comment.organizations.map(&:name).join(', ') %></h4>
+          <% if comment.document_id.nil? %>
+          <p>Die Stellungnahme zu diesem Gesetz ist noch nicht öffentlich. Jetzt anfragen.</p>
+          <% else %>
+          <%= link_to 'zur Stellungnahme', [@law, comment] %>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+    </ul>
+  </div>
 </div>
 
 <div class="container">
   <p id="notice"><%= notice %></p>
   <p class="admin-controls">
     <%= link_to 'Edit', edit_law_path(@law) %> |
-    <%= link_to 'Drafts', law_drafts_path(@law) %> |
-    <%= link_to 'Comments', law_comments_path(@law) %>
+    Drafts: <%= link_to 'New Draft', new_law_draft_path(@law) %> |
+    Comments: <%= link_to 'New Comment', new_law_comment_path(@law) %>
   </p>
 </div>

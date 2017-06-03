@@ -16,6 +16,11 @@
     <%= form.text_area :title, id: :law_title %>
   </div>
 
+  <div class="field">
+    <%= form.label :ministry_ids %>
+    <%= form.collection_select :ministry_ids, Ministry.all, :id, :name, {}, { multiple: true, id: :law_ministry_ids } %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
