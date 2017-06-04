@@ -1,8 +1,7 @@
 <header class="page-header law-header">
   <div class="container">
     <h2><%= @law.title %></h2>
-
-    <p>von <% @law.ministries.each do |ministry| %>
+    <p class="law-meta">von <% @law.ministries.each do |ministry| %>
       <%= link_to ministry.full_name, ministry %><%= "," unless ministry == @law.ministries.last %>
       <% end %>
     </p>
