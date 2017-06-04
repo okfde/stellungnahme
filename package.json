@@ -1,5 +1,7 @@
 {
   "name": "billtrack",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "Tabby": "cferdinandi/tabby"
+  }
 }

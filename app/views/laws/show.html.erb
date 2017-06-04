@@ -8,17 +8,21 @@
     </p>
 
     <nav>
-      <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a href="#drafts" aria-controls="drafts" role="tab" data-toggle="tab">Referentenentwurf</a></li>
-        <li role="presentation"><a href="#comments" aria-controls="comments" role="tab" data-toggle="tab"><%= @law.comments.count %> Stellungnahmen</a></li>
+      <ul class="nav nav-tabs" role="tablist" data-tabs>
+        <li role="presentation" class="active">
+          <a href="#drafts" aria-controls="drafts" role="tab" data-tab data-turbolinks="false"><span>Referentenentwurf</span></a>
+        </li>
+        <li role="presentation">
+          <a href="#comments" aria-controls="comments" role="tab" data-tab data-turbolinks="false"><span><%= @law.comments.count %> Stellungnahmen</span></a>
+        </li>
       </ul>
     </nav>
   </div>
 </header>
 
 <div class="container">
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active tab-draft" id="drafts">
+  <div class="tab-content law-tab-content" data-tabs-content>
+    <div role="tabpanel" class="tab-pane active tab-draft" data-tabs-pane id="drafts">
       <% @law.drafts.each do |draft| %>
         <p><strong>Published at:</strong> <%= l draft.published_at %></p>
         <% if draft.document.nil? %>
@@ -28,7 +32,7 @@
         <% end %>
       <% end %>
     </div>
-    <div role="tabpanel" class="tab-pane tab-comments" id="comments">
+    <div role="tabpanel" class="tab-pane tab-comments" data-tabs-pane id="comments">
       <ul class="comments-list">
       <%= render partial: 'comments/comment', collection: @law.comments %>
       </ul>

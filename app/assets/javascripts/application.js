@@ -12,4 +12,9 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require Tabby/dist/js/tabby.min
 //= require_tree .
+
+document.addEventListener('DOMContentLoaded', function() {
+  tabby.init();
+}, false);
