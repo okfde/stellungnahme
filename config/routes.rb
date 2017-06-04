@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :documents, path: 'd'
   resources :ministries, path: 'ministerien'
 
-  resources :laws do
+  resources :laws, path: 'gesetze' do
     resources :drafts, except: :index
     resources :comments, except: :index
   end
