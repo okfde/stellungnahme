@@ -59,3 +59,6 @@ gem 'friendly_id', '~> 5.2.1'
 
 # sort
 gem 'ffi-icu', '~> 0.1.10'
+
+# css
+gem 'bootstrap-sass', '~> 3.3.7'

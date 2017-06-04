@@ -1,4 +1,4 @@
-<header class="page-header">
+<header class="page-header law-header">
   <div class="container">
     <h2><%= @law.title %></h2>
 
@@ -8,29 +8,31 @@
     </p>
 
     <nav>
-      <ul>
-        <li><a href="#drafts">Referentenentwurf</a></li>
-        <li><a href="#comments"><%= @law.comments.count %> Stellungnahmen</a></li>
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#drafts" aria-controls="drafts" role="tab" data-toggle="tab">Referentenentwurf</a></li>
+        <li role="presentation"><a href="#comments" aria-controls="comments" role="tab" data-toggle="tab"><%= @law.comments.count %> Stellungnahmen</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
 <div class="container">
-  <div class="tab-draft" id="drafts">
-    <% @law.drafts.each do |draft| %>
-      <p><strong>Published at:</strong> <%= l draft.published_at %></p>
-      <% if draft.document.nil? %>
-      <p>Der Referentenentwurf für dieses Gesetz ist noch nicht öffentlich. Jetzt anfragen.</p>
-      <% else %>
-      <p><strong>Quelle:</strong> <%= link_to draft.document.source_url, draft.document.source_url %></p>
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active tab-draft" id="drafts">
+      <% @law.drafts.each do |draft| %>
+        <p><strong>Published at:</strong> <%= l draft.published_at %></p>
+        <% if draft.document.nil? %>
+        <p>Der Referentenentwurf für dieses Gesetz ist noch nicht öffentlich. Jetzt anfragen.</p>
+        <% else %>
+        <p><strong>Quelle:</strong> <%= link_to draft.document.source_url, draft.document.source_url %></p>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
-  <div class="tab-comments" id="comments">
-    <ul class="comments-list">
-    <%= render partial: 'comments/comment', collection: @law.comments %>
-    </ul>
+    </div>
+    <div role="tabpanel" class="tab-pane tab-comments" id="comments">
+      <ul class="comments-list">
+      <%= render partial: 'comments/comment', collection: @law.comments %>
+      </ul>
+    </div>
   </div>
 </div>
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>entwurfsfassung</title>
+  <title>stellungnah.me</title>
   <%= csrf_meta_tags %>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,15 +9,20 @@
 </head>
 <body>
   <header class="main-header">
-    <h1><%= link_to 'entwurfsfassung', root_url %></h1>
-    <nav>
-      <ul>
-        <li><%= link_to 'Verbände', organizations_path %></li>
-        <li><%= link_to 'Gesetze', laws_path %></li>
-        <li><%= link_to 'Ministerien', ministries_path %></li>
-        <li>&amp;</li>
-        <li><a href="#">Daten</a></li>
-      </ul>
+    <nav class="navbar navbar-static-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <%= link_to 'stellungnah.me', root_url, class: 'navbar-brand' %>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to 'Verbände', organizations_path %></li>
+          <li><%= link_to 'Gesetze', laws_path %></li>
+          <li><%= link_to 'Ministerien', ministries_path %></li>
+          <li class="navbar-text">&amp;</li>
+          <li><a href="#">Daten</a></li>
+        </ul>
+      </div>
     </nav>
   </header>
 
@@ -28,14 +33,20 @@
   <footer class="main-footer">
     <div class="container">
       <h3>Ein Projekt von</h3>
-      <nav>
-        <a href="https://www.abgeordnetenwatch.de" class="footer-abg"><img src="<%= image_url 'abgeordnetenwatch-logo.svg' %>" alt="abgeordnetenwatch.de" role="presentation" /></a>
-        <a href="https://okfn.de" class="footer-okf"><img src="<%= image_url 'okfn-logo.svg' %>" alt="Open Knowledge Foundation Deutschland e.V." role="presentation" /></a>
-        <ul>
-          <li><a href="#">Kontakt</a></li>
-          <li><a href="#">Impressum</a></li>
-        </ul>
-      </nav>
+      <div class="row">
+        <div class="col-md-5">
+          <a href="https://www.abgeordnetenwatch.de" class="footer-abg"><img src="<%= image_url 'abgeordnetenwatch-logo.svg' %>" alt="abgeordnetenwatch.de" role="presentation" /></a>
+        </div>
+        <div class="col-md-5">
+          <a href="https://okfn.de" class="footer-okf"><img src="<%= image_url 'okfn-logo.svg' %>" alt="Open Knowledge Foundation Deutschland e.V." role="presentation" /></a>
+        </div>
+        <div class="col-md-2">
+          <ul class="footer-nav">
+            <li><a href="#">Kontakt</a></li>
+            <li><a href="#">Impressum</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </footer>
 </body>
