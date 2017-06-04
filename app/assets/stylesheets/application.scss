@@ -347,3 +347,7 @@ main h3 {
 .law-tab-content {
   padding-top: 2em;
 }
+
+.tab-pane:focus {
+  outline: none;
+}
