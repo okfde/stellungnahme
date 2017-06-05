@@ -13,21 +13,21 @@
 </header>
 
 <div class="container">
+  <% if @comment.document.nil? %>
+  <p>Die Stellungnahme für dieses Gesetz ist noch nicht öffentlich. Jetzt anfragen.</p>
+  <% else %>
+  <p><strong>Quelle:</strong> <%= link_to @comment.document.source_url, @comment.document.source_url %></p>
+  <% end %>
 
-<p>
-  <strong>Document:</strong>
-  <%= @comment.document %>
-</p>
+  <p>
+    <strong>Asked at:</strong>
+    <%= l @comment.asked_at %>
+  </p>
 
-<p>
-  <strong>Asked at:</strong>
-  <%= l @comment.asked_at %>
-</p>
-
-<p>
-  <strong>Answered at:</strong>
-  <%= l @comment.answered_at %>
-</p>
+  <p>
+    <strong>Answered at:</strong>
+    <%= l @comment.answered_at %>
+  </p>
 </div>
 
 <div class="container">
