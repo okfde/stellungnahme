@@ -1,14 +1,18 @@
-<p id="notice"><%= notice %></p>
+<header class="page-header law-header comment-header">
+  <div class="container">
+    <p class="comment-meta">
+      Stellungnahme von <% @comment.organizations.each do |org| %>
+        <%= link_to org.name, org %><%= "," if org != @comment.organizations.last %>
+      <% end %> zu</p>
+    <h2><%= link_to @law.title, @law %></h2>
+    <p class="law-meta">von <% @law.ministries.each do |ministry| %>
+      <%= link_to ministry.full_name, ministry %><%= "," unless ministry == @law.ministries.last %>
+      <% end %>
+    </p>
+  </div>
+</header>
 
-<p>
-  <strong>Law:</strong>
-  <%= @comment.law %>
-</p>
-
-<p>
-  <strong>Draft:</strong>
-  <%= @comment.draft %>
-</p>
+<div class="container">
 
 <p>
   <strong>Document:</strong>
@@ -17,18 +21,19 @@
 
 <p>
   <strong>Asked at:</strong>
-  <%= @comment.asked_at %>
+  <%= l @comment.asked_at %>
 </p>
 
 <p>
   <strong>Answered at:</strong>
-  <%= @comment.answered_at %>
+  <%= l @comment.answered_at %>
 </p>
+</div>
 
-<p>
-  <strong>Organizations:</strong>
-  <%= @comment.organizations.map(&:name).join(', ') %>
-</p>
-
-<%= link_to 'Edit', edit_law_comment_path(@law, @comment) %> |
-<%= link_to 'Back', law_path(@law) %>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <p class="admin-controls">
+    <%= link_to 'Edit', edit_law_comment_path(@law, @comment) %> |
+    <%= link_to 'Back', law_path(@law) %>
+  </p>
+</div>

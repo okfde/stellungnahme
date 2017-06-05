@@ -32,9 +32,13 @@
       <% end %>
     </div>
     <div role="tabpanel" class="tab-pane tab-comments" data-tabs-pane id="comments">
+      <% if @law.comments.size > 0 %>
       <ul class="comments-list">
       <%= render partial: 'comments/comment', collection: @law.comments %>
       </ul>
+      <% else %>
+      <p>Es sind noch keine Stellungnahmen zu diesem Gesetz bekannt.</p>
+      <% end %>
     </div>
   </div>
 </div>
