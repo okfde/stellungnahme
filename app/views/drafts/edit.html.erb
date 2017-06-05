@@ -1,6 +1,10 @@
+<div class="container">
 <h1>Editing Draft</h1>
 
 <%= render 'form', law: @law, draft: @draft %>
 
+<p class="admin-controls">
 <%= link_to 'Show', [@law, @draft] %> |
-<%= link_to 'Back', law_drafts_path(@law) %>
+<%= link_to 'Back', law_path(@law) %>
+</p>
+</div>

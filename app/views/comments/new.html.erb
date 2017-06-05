@@ -1,5 +1,9 @@
+<div class="container">
 <h1>New Comment</h1>
 
 <%= render 'form', law: @law, comment: @comment %>
 
+<p class="admin-controls">
 <%= link_to 'Back', law_path(@law) %>
+</p>
+</div>
