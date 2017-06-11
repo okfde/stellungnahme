@@ -1,5 +1,6 @@
 class LawsController < ApplicationController
   before_action :set_law, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate!, except: [:index, :show]
 
   # GET /laws
   # GET /laws.json

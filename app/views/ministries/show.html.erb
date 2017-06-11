@@ -12,8 +12,9 @@
   </ul>
 </div>
 
-
+<% if authenticated? %>
 <div class="container">
   <p id="notice"><%= notice %></p>
   <p class="admin-controls"><%= link_to 'Edit', edit_ministry_path(@ministry) %></p>
 </div>
+<% end %>

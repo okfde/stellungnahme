@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_law
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate!, except: [:index, :show]
 
   # GET /laws/1/comments
   # GET /laws/1/comments.json

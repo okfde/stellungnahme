@@ -10,8 +10,9 @@
   </ul>
 </div>
 
-
+<% if authenticated? %>
 <div class="container">
   <p id="notice"><%= notice %></p>
   <p class="admin-controls"><%= link_to 'New Law', new_law_path %></p>
 </div>
+<% end %>

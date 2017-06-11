@@ -1,19 +1,26 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p>
+    <strong>Law:</strong>
+    <%= @draft.law %>
+  </p>
 
-<p>
-  <strong>Law:</strong>
-  <%= @draft.law %>
-</p>
+  <p>
+    <strong>Published at:</strong>
+    <%= @draft.published_at %>
+  </p>
 
-<p>
-  <strong>Published at:</strong>
-  <%= @draft.published_at %>
-</p>
+  <p>
+    <strong>Document:</strong>
+    <%= @draft.document %>
+  </p>
+</div>
 
-<p>
-  <strong>Document:</strong>
-  <%= @draft.document %>
-</p>
-
-<%= link_to 'Edit', edit_law_draft_path(@law, @draft) %> |
-<%= link_to 'Back', law_path(@law) %>
+<% if authenticated? %>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <p class="admin-controls">
+    <%= link_to 'Edit', edit_law_draft_path(@law, @draft) %> |
+    <%= link_to 'Back', law_path(@law) %>
+  </p>
+</div>
+<% end %>

@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-
+<div class="container">
 <h1>Drafts</h1>
 
 <table>
@@ -25,7 +24,13 @@
     <% end %>
   </tbody>
 </table>
+</div>
 
-<br>
-
-<%= link_to 'New Draft', new_law_draft_path(@law) %>
+<% if authenticated? %>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <p class="admin-controls">
+    <%= link_to 'New Draft', new_law_draft_path(@law) %>
+  </p>
+</div>
+<% end %>

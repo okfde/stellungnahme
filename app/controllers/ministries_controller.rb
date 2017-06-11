@@ -1,5 +1,6 @@
 class MinistriesController < ApplicationController
   before_action :set_ministry, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate!, except: [:index, :show]
 
   # GET /ministries
   # GET /ministries.json

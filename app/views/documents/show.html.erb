@@ -1,24 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p>
+    <strong>Source url:</strong>
+    <%= @document.source_url %>
+  </p>
 
-<p>
-  <strong>Source url:</strong>
-  <%= @document.source_url %>
-</p>
+  <p>
+    <strong>Contents:</strong>
+    <%= @document.contents %>
+  </p>
 
-<p>
-  <strong>Contents:</strong>
-  <%= @document.contents %>
-</p>
+  <p>
+    <strong>Filetype:</strong>
+    <%= @document.filetype %>
+  </p>
 
-<p>
-  <strong>Filetype:</strong>
-  <%= @document.filetype %>
-</p>
+  <p>
+    <strong>Filesize:</strong>
+    <%= @document.filesize %>
+  </p>
 
-<p>
-  <strong>Filesize:</strong>
-  <%= @document.filesize %>
-</p>
+</div>
 
-<%= link_to 'Edit', edit_document_path(@document) %> |
-<%= link_to 'Back', documents_path %>
+<% if authenticated? %>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <p class="admin-controls">
+    <%= link_to 'Edit', edit_document_path(@document) %> |
+    <%= link_to 'Back', documents_path %>
+  </p>
+</div>
+<% end %>

@@ -43,6 +43,7 @@
   </div>
 </div>
 
+<% if authenticated? %>
 <div class="container">
   <p id="notice"><%= notice %></p>
   <p class="admin-controls">
@@ -51,3 +52,4 @@
     Comments: <%= link_to 'New Comment', new_law_comment_path(@law) %>
   </p>
 </div>
+<% end %>
