@@ -14,9 +14,6 @@ class ApplicationController < ActionController::Base
   def authenticate_with_config(pass)
     auth = Rails.application.secrets.try(:auth)
     return false if auth.nil?
-    ActiveSupport::SecurityUtils.secure_compare(
-      ::Digest::SHA256.hexdigest(auth),
-      ::Digest::SHA256.hexdigest(pass)
-    )
+    ActiveSupport::SecurityUtils.variable_size_secure_compare(auth, pass)
   end
 end
