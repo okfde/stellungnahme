@@ -17,6 +17,7 @@ class CommentsController < ApplicationController
   # GET /laws/1/comments/new
   def new
     @comment = @law.comments.new
+    @comment.build_document
   end
 
   # GET /laws/1/comments/1/edit
@@ -77,7 +78,8 @@ class CommentsController < ApplicationController
     def comment_params
       params.require(:comment).permit(
         :draft_id, :document_id, :asked_at, :answered_at,
-        organization_ids: []
+        organization_ids: [],
+        document_attributes: [:source_url]
       )
     end
 end

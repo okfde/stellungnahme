@@ -76,6 +76,6 @@ class DraftsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def draft_params
-      params.require(:draft).permit(:published_at, :document_id, document_attributes: [:source_url, :remote_file_url])
+      params.require(:draft).permit(:published_at, :document_id, document_attributes: [:source_url])
     end
 end
