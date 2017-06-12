@@ -16,10 +16,12 @@
     <%= form.datetime_select :published_at, id: :draft_published_at %>
   </div>
 
+  <%= form.fields_for :document do |df| %>
   <div class="field">
-    <%= form.label :document_id %>
-    <%= form.select :document_id, Document.all.collect {|d| [d.source_url, d.id]}, id: :draft_document_id %>
+    <%= df.label :source_url %>
+    <%= df.text_field :source_url %>
   </div>
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>

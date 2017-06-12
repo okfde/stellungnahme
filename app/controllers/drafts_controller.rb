@@ -17,6 +17,7 @@ class DraftsController < ApplicationController
   # GET /laws/1/drafts/new
   def new
     @draft = Draft.new
+    @draft.build_document
   end
 
   # GET /laws/1/drafts/1/edit
@@ -31,7 +32,7 @@ class DraftsController < ApplicationController
     respond_to do |format|
       if @draft.save
         format.html { redirect_to [@law, @draft], notice: 'Draft was successfully created.' }
-        format.json { render :show, status: :created, location: [@law, @draft] }
+        format.json { render :show, status: :created, location: @law }
       else
         format.html { render :new }
         format.json { render json: @draft.errors, status: :unprocessable_entity }
@@ -44,8 +45,8 @@ class DraftsController < ApplicationController
   def update
     respond_to do |format|
       if @draft.update(draft_params)
-        format.html { redirect_to [@law, @draft], notice: 'Draft was successfully updated.' }
-        format.json { render :show, status: :ok, location: [@law, @draft] }
+        format.html { redirect_to @law, notice: 'Draft was successfully updated.' }
+        format.json { render :show, status: :ok, location: @law }
       else
         format.html { render :edit }
         format.json { render json: @draft.errors, status: :unprocessable_entity }
@@ -58,7 +59,7 @@ class DraftsController < ApplicationController
   def destroy
     @draft.destroy
     respond_to do |format|
-      format.html { redirect_to law_drafts_url(@law), notice: 'Draft was successfully destroyed.' }
+      format.html { redirect_to law_url(@law), notice: 'Draft was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -75,6 +76,6 @@ class DraftsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def draft_params
-      params.require(:draft).permit(:published_at, :document_id)
+      params.require(:draft).permit(:published_at, :document_id, document_attributes: [:source_url, :remote_file_url])
     end
 end

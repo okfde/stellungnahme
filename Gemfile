@@ -62,3 +62,9 @@ gem 'ffi-icu', '~> 0.1.10'
 
 # css
 gem 'bootstrap-sass', '~> 3.3.7'
+
+# csv
+gem 'smarter_csv', '~> 1.1.4'
+
+# upload
+gem 'carrierwave', '~> 1.1.0'

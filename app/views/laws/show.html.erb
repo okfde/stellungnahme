@@ -29,6 +29,14 @@
         <% else %>
         <p><strong>Quelle:</strong> <%= link_to draft.document.source_url, draft.document.source_url %></p>
         <% end %>
+
+
+        <% if authenticated? %>
+        <p class="admin-controls">
+          <%= link_to 'Edit Draft', edit_law_draft_path(@law, draft) %> |
+          <%= link_to 'Destroy', [@law, draft], method: :delete, data: { confirm: 'Are you sure?' } %>
+        </p>
+        <% end %>
       <% end %>
     </div>
     <div role="tabpanel" class="tab-pane tab-comments" data-tabs-pane id="comments">
