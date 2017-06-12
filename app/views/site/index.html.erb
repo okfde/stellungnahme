@@ -3,16 +3,17 @@
     <h2><mark><%= @org_count %></mark> Verbände wurden in den letzten <mark><%= time_ago_in_words(@first_comment.asked_at, scope: :'datetime.distance_in_words_letzten').gsub(/\s/, '&nbsp;').html_safe %></mark> angefragt,
     Stellungnahmen zu <mark><%= @law_count %>&nbsp;Gesetzen</mark> zu schreiben</h2>
 
+    <!--
     <form action="/search" method="get">
       <div class="search-input-wrap">
         <label class="sr-only" for="q">Nach Verband suchen</label>
         <input type="search" class="search-input" id="q" name="q" placeholder="Nach Verband suchen"/>
-        <!-- search icon button? -->
       </div>
       <p class="search-examples">
         zum Beispiel <a href="/search?q=Volkswagen">Volkswagen</a> oder <a href="/search?q=Bitkom">Bitkom</a>
       </p>
     </form>
+    -->
   </div>
 </header>
 
