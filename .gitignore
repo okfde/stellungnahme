@@ -21,3 +21,6 @@
 # uploads
 /public/uploads
 /public/storage
+
+# deployment
+/config/deploy.rb
