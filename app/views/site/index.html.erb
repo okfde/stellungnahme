@@ -20,8 +20,8 @@
 <div class="container">
   <h3>Und hier ist eine Liste aller angefragten Verbände:</h3>
   <ol class="list-abc">
-    <% @letters.each do |letter| %>
-      <li><%= link_to letter, "/#{letter.downcase}", class: letter.downcase == @letter.downcase ? 'active' : '' %></li>
+    <% @letters.each do |letter, urlkey| %>
+      <li><%= link_to letter, "/#{urlkey}", class: letter == @letter ? 'active' : '' %></li>
     <% end %>
   </ol>
 
