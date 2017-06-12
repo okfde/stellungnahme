@@ -9,12 +9,21 @@ organization = false if organization.nil?
   </p>
   <h3><%= link_to law.title, law %></h3>
   <nav>
-    <%= link_to 'zum Referentenentwurf', law_path(law, anchor: 'draft') %>
-    <% if !organization %>
-    <%= link_to 'zu den Stellungnahmen', law_path(law, anchor: 'comments') %>
+    <% if law.drafts.empty? %>
+      <%= link_to 'Referentenentwurf anfragen', "https://fragdenstaat.de/kampagne/gesetze/?q=#{law.title}" %>
     <% else %>
-    <%# FIXME: link to comments of this org %>
-    <%= link_to 'zu den Stellungnahmen', law_path(law, anchor: 'comments') %>
+      <%= link_to 'zum Referentenentwurf', law_path(law, anchor: 'draft') %>
+    <% end %>
+    &bull;
+    <% if !organization %>
+      <% if law.comments.empty? %>
+        <%= link_to 'Stellungnahmen anfragen', "https://fragdenstaat.de/kampagne/gesetze/?q=#{law.title}" %>
+      <% else %>
+        <%= link_to 'zu den Stellungnahmen', law_path(law, anchor: 'comments') %>
+      <% end %>
+    <% else %>
+      <%# FIXME: link to comments of this org %>
+      <%= link_to 'zu den Stellungnahmen', law_path(law, anchor: 'comments') %>
     <% end %>
   </nav>
 </li>
