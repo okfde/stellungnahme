@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: billtrack_development
+  url: <%= ENV['DATABASE_URL'] || 'postgres://localhost/billtrack_development' %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: billtrack_production
-  username: billtrack
-  password: <%= ENV['BILLTRACK_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
