@@ -1,24 +1,9 @@
-# README
+# stellungnah.me
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Zeigt Gesetzesentwürfe der Ministerien und die Stellungnahmen von verschiedenen Verbänden dazu übersichtlich an. Stellungnahmen, die noch nicht öffentlich sind, lassen sich mit der Verknüpfung zu [FragDenStaat](https://fragdenstaat.de) einfach anfragen.
 
-Things you may want to cover:
+---
 
-* Ruby version
+## Entwicklung
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+stellungnah.me ist eine Rails 5-Anwendung. Für die Entwicklung benötigst du eine Ruby(>= 2.4)-Umgebung.
