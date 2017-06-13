@@ -68,3 +68,6 @@ gem 'smarter_csv', '~> 1.1.4'
 
 # upload
 gem 'carrierwave', '~> 1.1.0'
+
+# simple title and opengraph/twitter cards view helpers
+gem 'tophat', '~> 2.3.1'
