@@ -8,20 +8,20 @@
 
 ministries = Ministry.create(
   [
-    { name: 'Justiz und Verbraucherschutz', short_name: 'BMJV' },
-    { name: 'Gesundheit', short_name: 'BMG' },
     { name: 'Auswärtiges Amt', short_name: 'AA' },
-    { name: 'Wirtschaft und Energie', short_name: 'BMWi' },
-    { name: 'Wirtschaftliche Zusammenarbeit und Entwicklung', short_name: 'BMZ' },
-    { name: 'Inneres', short_name: 'BMI' },
-    { name: 'Finanzen', short_name: 'BMF' },
-    { name: 'Arbeit und Soziales', short_name: 'BMAS' },
-    { name: 'Umwelt, Naturschutz, Bau und Reaktorsicherheit', short_name: 'BMUB' },
-    { name: 'Bildung und Forschung', short_name: 'BMBF' },
-    { name: 'Verkehr und digitale Infrastruktur', short_name: 'BMVI' },
-    { name: 'Verteidigung', short_name: 'BMVg' },
-    { name: 'Familie, Senioren, Frauen und Jugend', short_name: 'BMFSFJ' },
-    { name: 'Ernährung und Landwirtschaft', short_name: 'BMEL' },
-    { name: 'Kanzleramt und Medien' }
+    { name: 'Bundesministerium der Finanzen', short_name: 'BMF' },
+    { name: 'Bundesministerium der Justiz und für Verbraucherschutz', short_name: 'BMJV' },
+    { name: 'Bundesministerium der Verteidigung', short_name: 'BMVg' },
+    { name: 'Bundesministerium des Innern', short_name: 'BMI' },
+    { name: 'Bundesministerium für Arbeit und Soziales', short_name: 'BMAS' },
+    { name: 'Bundesministerium für Bildung und Forschung', short_name: 'BMBF' },
+    { name: 'Bundesministerium für Ernährung und Landwirtschaft', short_name: 'BMEL' },
+    { name: 'Bundesministerium für Familie, Senioren, Frauen und Jugend', short_name: 'BMFSFJ' },
+    { name: 'Bundesministerium für Gesundheit', short_name: 'BMG' },
+    { name: 'Bundesministerium für Umwelt, Naturschutz, Bau und Reaktorsicherheit', short_name: 'BMUB' },
+    { name: 'Bundesministerium für Verkehr und digitale Infrastruktur', short_name: 'BMVI' },
+    { name: 'Bundesministerium für wirtschaftliche Zusammenarbeit und Entwicklung', short_name: 'BMZ' },
+    { name: 'Bundesministerium für Wirtschaft und Energie', short_name: 'BMWi' },
+    { name: 'Beauftragter der Bundesregierung für Kultur und Medien' }
   ]
 )
