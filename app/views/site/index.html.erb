@@ -1,7 +1,7 @@
 <header class="page-header">
   <div class="container">
-    <h2><mark><%= @org_count %></mark> Verbände wurden in den letzten <mark><%= time_ago_in_words(@first_comment.asked_at, scope: :'datetime.distance_in_words_letzten').gsub(/\s/, '&nbsp;').html_safe %></mark> angefragt,
-    Stellungnahmen zu <mark><%= @law_count %>&nbsp;Gesetzen</mark> zu schreiben</h2>
+    <h2><mark><%= @org_count %></mark> Verbände wurden in den letzten <mark><%= time_ago_in_words(@first_comment.asked_at, scope: :'datetime.distance_in_words_letzten').gsub(/\s/, '&nbsp;').html_safe %></mark> an&shy;ge&shy;fragt,
+    Stellung&shy;nahmen zu <mark><%= @law_count %>&nbsp;Ge&shy;setzen</mark> zu schreiben</h2>
 
     <!--
     <form action="/search" method="get">

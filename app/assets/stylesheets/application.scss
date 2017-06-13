@@ -218,6 +218,8 @@ main h3 {
 
 .main-footer img {
   height: 80px;
+  max-width: 100%;
+  margin-bottom: 1em;
 }
 
 .main-footer a:hover {
@@ -271,6 +273,11 @@ main h3 {
 
 .law-block h3 {
   margin-bottom: 1em;
+
+  word-break: break-all;
+  /* Non standard for webkit */
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .law-block h3 a {
