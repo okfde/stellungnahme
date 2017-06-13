@@ -1,13 +1,7 @@
 class DraftsController < ApplicationController
   before_action :set_law
   before_action :set_draft, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate!, except: [:index, :show]
-
-  # GET /laws/1/drafts
-  # GET /laws/1/drafts.json
-  def index
-    @drafts = Draft.all
-  end
+  before_action :authenticate!, except: [:show]
 
   # GET /laws/1/drafts/1
   # GET /laws/1/drafts/1.json
