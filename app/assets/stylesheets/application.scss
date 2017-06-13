@@ -82,6 +82,11 @@ main {
   margin-top: 0;
   margin-bottom: 1.5em;
   padding-top: 1.5em;
+
+  word-break: break-all;
+  /* Non standard for webkit */
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .page-header mark {
@@ -286,6 +291,11 @@ main h3 {
 
 .law-header h2 {
   margin-bottom: 0;
+
+  word-break: break-all;
+  /* Non standard for webkit */
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .law-meta {
@@ -366,4 +376,11 @@ main h3 {
 
 .tab-pane:focus {
   outline: none;
+}
+
+.source-link {
+  word-break: break-all;
+  /* Non standard for webkit */
+  word-break: break-word;
+  hyphens: auto;
 }

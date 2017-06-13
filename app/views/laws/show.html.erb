@@ -36,7 +36,7 @@
         </p>
         <% else %>
         <embed src="<%= draft.document.file.url %>" width="100%" height="500" type='application/pdf' />
-        <p><strong>Quelle:</strong> <%= link_to draft.document.source_url, draft.document.source_url %></p>
+        <p><strong>Quelle:</strong> <%= link_to draft.document.source_url, draft.document.source_url, class: 'source-link' %></p>
         <% end %>
 
 
