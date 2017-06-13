@@ -26,4 +26,9 @@ class SiteController < ApplicationController
 
     @orgs = Organization.where('LOWER(name) LIKE ?', @letter.downcase + '%')
   end
+
+  def status
+    expires_now
+    render plain: "OK - #{Time.now}"
+  end
 end

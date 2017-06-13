@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :comments, path: 's', except: :index
   end
 
+  get 'status' => 'site#status'
+
   get '/:letter', to: 'site#index', constraints: { letter: /[[:alpha:]]{1,2}/ }
 
   root 'site#index'
