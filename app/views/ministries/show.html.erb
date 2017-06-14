@@ -4,7 +4,7 @@
   <div class="container">
     <h2><%= @ministry.name %> <% unless @ministry.short_name.blank? %>(<%= @ministry.short_name %>)<% end %></h2>
 
-    <p>Das Ministerium hat <%= @ministry.laws.count %> Gesetze entworfen.</p>
+    <h4>Das Ministerium hat <%= @ministry.laws.count %> Gesetze entworfen.</h4>
   </div>
 </header>
 
