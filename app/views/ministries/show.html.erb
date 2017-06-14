@@ -2,10 +2,10 @@
 
 <header class="page-header">
   <div class="container">
-    <h><%= @ministry.name %> <% unless @ministry.short_name.blank? %>(<%= @ministry.short_name %>)<% end %></h1>
+    <h2><%= @ministry.name %> <% unless @ministry.short_name.blank? %>(<%= @ministry.short_name %>)<% end %></h2>
 
     <p>Das Ministerium hat <%= @ministry.laws.count %> Gesetze entworfen.</p>
-  </div>1
+  </div>
 </header>
 
 <div class="container">
