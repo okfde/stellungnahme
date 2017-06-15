@@ -71,3 +71,6 @@ gem 'carrierwave', '~> 1.1.0'
 
 # simple title and opengraph/twitter cards view helpers
 gem 'tophat', '~> 2.3.1'
+
+# for nomenklatura
+gem 'httparty', '~> 0.15.5'
