@@ -1,4 +1,13 @@
 de:
+  activerecord:
+    models:
+      ministry:
+        one: Ministerium
+        other: Ministerien
+    attributes:
+      ministry:
+        name: Name
+        short_name: 'Kürzel'
   datetime:
     distance_in_words_letzten:
       about_x_hours:
