@@ -15,6 +15,9 @@
 //= require Tabby/dist/js/tabby.min
 //= require_tree .
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("turbolinks:load", function() {
   tabby.init();
+  if (location.search != "") {
+    tabby.toggleTab(location.search);
+  }
 }, false);
