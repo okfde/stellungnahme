@@ -22,6 +22,6 @@ ministries = Ministry.create(
     { name: 'Bundesministerium für Verkehr und digitale Infrastruktur', short_name: 'BMVI' },
     { name: 'Bundesministerium für wirtschaftliche Zusammenarbeit und Entwicklung', short_name: 'BMZ' },
     { name: 'Bundesministerium für Wirtschaft und Energie', short_name: 'BMWi' },
-    { name: 'Beauftragter der Bundesregierung für Kultur und Medien' }
+    { name: 'Beauftragten der Bundesregierung für Kultur und Medien' }
   ]
 )
