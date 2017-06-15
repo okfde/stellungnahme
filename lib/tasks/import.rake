@@ -84,4 +84,40 @@ namespace :import do
 
     puts "Import finished. already known: #{known}, new: #{unknown}"
   end
+
+  desc 'import drafts of laws'
+  task :drafts, [:path] => :environment do |_t, args|
+    path = args[:path]
+    raise 'Not found' unless File.exist? path
+
+    known = 0
+    unknown = 0
+
+    data = SmarterCSV.process(path)
+    data.each do |row|
+      l = Law.find_by_title(row[:law].strip)
+      if l.nil?
+        puts "Unknown Law: #{row[:law]}"
+        next
+      end
+
+      doc = Document.find_by_source_url(row[:url].strip)
+      draft = Draft.where(law: l, document: doc)
+      if draft.count > 0
+        puts "  old"
+        known += 1
+      else
+        puts "! NEW"
+        dd = nil
+        dd = Date.parse(row[:date].strip) unless row[:date].blank?
+
+        doc = Document.create(source_url: row[:url].strip) if doc.nil?
+
+        l.drafts.create(published_at: dd, document: doc)
+        unknown += 1
+      end
+    end
+
+    puts "Import finished. already known: #{known}, new: #{unknown}"
+  end
 end
