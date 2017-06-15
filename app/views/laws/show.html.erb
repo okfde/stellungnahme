@@ -24,6 +24,12 @@
 <div class="container">
   <div class="tab-content law-tab-content" data-tabs-content>
     <div role="tabpanel" class="tab-pane active tab-draft" data-tabs-pane id="drafts">
+      <% if @law.drafts.empty? %>
+      <p>
+        Der Referentenentwurf für dieses Gesetz ist noch nicht öffentlich.
+        <%= link_to 'Jetzt anfragen.', "https://fragdenstaat.de/kampagne/gesetze/?q=#{@law.title}" %>
+      </p>
+      <% end %>
       <% i = 0 %>
       <% @law.drafts.each do |draft| %>
       <% i += 1 %>
