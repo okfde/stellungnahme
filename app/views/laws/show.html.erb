@@ -28,7 +28,7 @@
       <% @law.drafts.each do |draft| %>
       <% i += 1 %>
         <p><strong>Referentenentwurf #<%= i %></strong>
-        <% if draft.published_at %> - Veröffentlicht am <%= l draft.published_at %><% end %></p>
+        <% if draft.published_at %> - Veröffentlicht am <%= l draft.published_at, format: :date %><% end %></p>
         <% if draft.document.nil? %>
         <p>
           Der Referentenentwurf für dieses Gesetz ist noch nicht öffentlich.
