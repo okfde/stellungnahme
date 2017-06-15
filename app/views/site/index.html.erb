@@ -1,7 +1,7 @@
 <header class="page-header">
   <div class="container">
-    <h2><mark><%= @org_count %>Verbände</mark> haben
-    <mark>20.000 Stellung&shy;nahmen</mark> zu <mark><%= @law_count %>&nbsp;Ge&shy;setzen</mark> geschrieben</h2>
+    <h2><mark><%= number_with_delimiter @org_count %>&nbsp;Verbände</mark> haben
+    <mark><%= number_with_delimiter @comment_count %>&nbsp;Stellung&shy;nahmen</mark> zu <mark><%= number_with_delimiter @law_count %>&nbsp;Ge&shy;setzen</mark> geschrieben</h2>
 
     <!--
     <form action="/search" method="get">

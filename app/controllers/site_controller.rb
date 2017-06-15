@@ -2,7 +2,7 @@ class SiteController < ApplicationController
   def index
     @org_count = Organization.count
     @law_count = Law.count
-    @first_comment = Comment.order(asked_at: :asc).first || OpenStruct.new(asked_at: 5.years.ago)
+    @comment_count = Comment.count
 
     @letters = {}
     lttr = (('a'..'z').to_a + %w(ä ü ö))
