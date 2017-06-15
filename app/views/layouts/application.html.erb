@@ -5,8 +5,13 @@
   <%= title site: 'stellungnah.me', separator: '-', reverse: 'true' %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width">
+  <%= tag 'link', href: asset_path('favicon.png'), rel: 'icon', type: 'image/png' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= description %>
+  <%= opengraph { |graph| graph.site_name 'stellungnah.me' } -%>
+  <%= twitter_card('summary') { |card| card.site '@fragdenstaat' } -%>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <!-- Entwickler*in? Auf der Suche nach Rohdaten oder einer API? Kommt bald. Ping auf twitter: @fragdenstaat -->
 </head>
 <body>
   <header class="main-header">

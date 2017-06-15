@@ -1,4 +1,12 @@
 de:
+  comments:
+    zero: Stellungnahmen
+    one: eine Stellungnahme
+    other: ! '%{count} Stellungnahmen'
+  to_comments:
+    zero: zur den Stellungnahmen
+    one: zur Stellungnahme
+    other: 'zu den %{count} Stellungnahmen'
   activerecord:
     models:
       ministry:

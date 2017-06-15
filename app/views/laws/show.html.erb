@@ -1,5 +1,19 @@
-<% title @law.title %>
+<%
+title @law.title
 
+ministries = @law.ministries.map { |m| m.name }
+desc = "Referentenentwurf und Stellungnahmen zu #{@law.title} von #{ministries.join(', ')}"
+description desc
+opengraph do |graph|
+  graph.title @law.title
+  graph.description desc
+end
+twitter_card('summary') do |card|
+  card.title @law.title
+  card.description desc
+end
+
+%>
 <header class="page-header law-header">
   <div class="container">
     <h2><%= @law.title %></h2>
@@ -14,7 +28,7 @@
           <a href="#drafts" aria-controls="drafts" role="tab" data-tab data-turbolinks="false"><span>Referentenentwurf</span></a>
         </li>
         <li role="presentation">
-          <a href="#comments" aria-controls="comments" role="tab" data-tab data-turbolinks="false"><span><%= @law.comments.count %> Stellungnahmen</span></a>
+          <a href="#comments" aria-controls="comments" role="tab" data-tab data-turbolinks="false"><span><%= t :comments, count: @law.comments.count %></span></a>
         </li>
       </ul>
     </nav>

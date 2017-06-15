@@ -1,3 +1,21 @@
+<%
+orgs = @comment.organizations.map { |o| o.name }
+the_title "#{orgs.join(', ')}: #{@law.title}"
+
+title the_title
+desc = "Stellungnahme von #{orgs.join(', ')} zu #{@law.title}"
+description desc
+opengraph do |graph|
+  graph.title the_title
+  graph.description desc
+end
+twitter_card('summary') do |card|
+  card.title the_title
+  card.description desc
+end
+
+%>
+
 <header class="page-header law-header comment-header">
   <div class="container">
     <p class="comment-meta">

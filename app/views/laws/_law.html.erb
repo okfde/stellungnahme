@@ -19,11 +19,11 @@ organization = false if organization.nil?
       <% if law.comments.empty? %>
         <%= link_to 'Stellungnahmen anfragen', "https://fragdenstaat.de/kampagne/gesetze/?q=#{law.title}" %>
       <% else %>
-        <%= link_to 'zu den Stellungnahmen', law_path(law, anchor: 'comments') %>
+        <%= link_to t(:to_comments, count: law.comments.count), law_path(law, anchor: 'comments') %>
       <% end %>
     <% else %>
       <%# FIXME: link to comments of this org %>
-      <%= link_to 'zu den Stellungnahmen', law_path(law, anchor: 'comments') %>
+      <%= link_to t(:to_comments, count: law.comments.count), law_path(law, anchor: 'comments') %>
     <% end %>
   </nav>
 </li>
