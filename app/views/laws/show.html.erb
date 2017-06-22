@@ -70,6 +70,11 @@ end
     </div>
     <div role="tabpanel" class="tab-pane tab-comments" data-tabs-pane id="comments">
       <% if @law.comments.size > 0 %>
+      <nav class="filter-bar">
+        <a href="#comments" class="filter-link active" data-filter="all">Alle anzeigen</a> &bull;
+        <a href="#comments" class="filter-link" data-filter="published">Nur veröffentlicht</a> &bull;
+        <a href="#comments" class="filter-link" data-filter="unpublished">Nur unveröffentlicht</a>
+      </nav>
       <ul class="comments-list">
       <%= render partial: 'comments/comment', collection: @law.comments %>
       </ul>

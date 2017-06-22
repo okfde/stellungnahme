@@ -338,6 +338,22 @@ ul {
   list-style: none;
 }
 
+.comments-list.only-published .comment--unpublished {
+  display: none;
+}
+
+.comments-list.only-unpublished .comment--published {
+  display: none;
+}
+
+.filter-bar {
+  margin-bottom: 1em;
+}
+
+.filter-link.active {
+  font-weight: bold;
+}
+
 .comment-block {
   border: 1px solid #333;
   background: #fff;

@@ -1,4 +1,4 @@
-<li class="comment-block">
+<li class="comment-block <%= comment.document_id.nil? ? 'comment--unpublished' : 'comment--published' %>">
   <h4><% comment.organizations.each do |org| %>
     <%= link_to org.name, org %><%= "," if org != comment.organizations.last %>
   <% end %></h4>
