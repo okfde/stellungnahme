@@ -129,7 +129,7 @@ namespace :import do
     known = 0
     unknown = 0
 
-    data = SmarterCSV.process(path)
+    data = SmarterCSV.process(path, convert_values_to_numeric: false)
     data.each do |row|
       law_name = row[:law].try(:strip)
       if law_name.blank?
@@ -148,16 +148,21 @@ namespace :import do
         next
       end
 
-      org_name = row[:org].strip
-      if org_name.blank? || org_name == 'x'
+      org_name = row[:org]
+      if org_name.blank? || org_name.try(:strip) == 'x'
         puts "No Organization for Law: #{l.title}"
         next
       end
 
-      org_name = Organization.normalize(org_name)
-      o = Organization.where('LOWER(name) LIKE ?', org_name.downcase).first
+      clean_org_name = Organization.normalize(org_name)
+      if clean_org_name.nil?
+        puts "Nomenklatura says invalid: #{org_name}"
+        next
+      end
+
+      o = Organization.where('LOWER(name) LIKE ?', clean_org_name.downcase).first
       if o.nil?
-        puts "Unknown Organization: #{org_name}"
+        puts "Unknown Organization: #{clean_org_name}"
         next
       end
 
@@ -171,7 +176,12 @@ namespace :import do
       else
         puts "! NEW"
         dd = nil
-        dd = Date.parse(row[:date].strip) unless row[:date].blank?
+        begin
+          dd = Date.parse(row[:date].strip) unless row[:date].blank?
+        rescue
+          puts "! date: unknown format: #{row[:date]}"
+          dd = nil
+        end
 
         doc = Document.create(source_url: url) if doc.nil? && !url.blank?
         if !doc.nil? && !doc.valid?
