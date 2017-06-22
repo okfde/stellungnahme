@@ -1,6 +1,6 @@
 <%
 orgs = @comment.organizations.map { |o| o.name }
-the_title "#{orgs.join(', ')}: #{@law.title}"
+the_title = "#{orgs.join(', ')}: #{@law.title}"
 
 title the_title
 desc = "Stellungnahme von #{orgs.join(', ')} zu #{@law.title}"
