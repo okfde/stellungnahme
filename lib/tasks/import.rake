@@ -1,3 +1,4 @@
+require 'csv'
 require 'smarter_csv'
 
 namespace :import do
@@ -202,6 +203,8 @@ namespace :import do
     path = args[:path]
     raise "file,#{path}" unless File.exist? path
 
+    out = CSV.new(STDOUT)
+
     data = SmarterCSV.process(path, convert_values_to_numeric: false)
     data.each do |row|
       law_name = row[:law].try(:strip)
@@ -209,13 +212,13 @@ namespace :import do
 
       l = Law.find_by_title(law_name)
       if l.nil?
-        puts "law,#{law_name}"
+        out << ['law', law_name]
         next
       end
 
       draft = l.drafts.first
       if draft.nil?
-        puts "draft,#{l.title}"
+        out << ['draft', l.title]
         next
       end
 
@@ -224,12 +227,12 @@ namespace :import do
 
       clean_org_name = Organization.normalize(org_name)
       if clean_org_name.nil?
-        puts "organization,#{org_name}"
+        out << ['organization', org_name]
         next
       end
 
       o = Organization.where('LOWER(name) LIKE ?', clean_org_name.downcase).first
-      puts "organization,#{clean_org_name}" if o.nil?
+      out << ['organization', clean_org_name] if o.nil?
     end
   end
 end
