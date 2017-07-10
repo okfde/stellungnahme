@@ -5,7 +5,7 @@ class LawsController < ApplicationController
   # GET /laws
   # GET /laws.json
   def index
-    @laws = Law.all
+    @laws = Law.includes(:drafts).where.not(drafts: { id: nil })
   end
 
   # GET /laws/1
